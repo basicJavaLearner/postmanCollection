@@ -1,0 +1,1437 @@
+{
+	"info": {
+		"_postman_id": "a2948064-d984-4153-a084-f4bb4b9b5888",
+		"name": "Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36420473"
+	},
+	"item": [
+		{
+			"name": "Регистрация и авторизация",
+			"item": [
+				{
+					"name": "Регистрация",
+					"item": [
+						{
+							"name": "Позитивный сценарий",
+							"item": [
+								{
+									"name": "Регистрация",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "status",
+												"value": "available",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\": \"username\",\r\n    \"email\": \"email@com.com\",\r\n    \"password\": \"password\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://api.wishlist.otus.kartushin.su/api/auth/register",
+											"protocol": "https",
+											"host": [
+												"api",
+												"wishlist",
+												"otus",
+												"kartushin",
+												"su"
+											],
+											"path": [
+												"api",
+												"auth",
+												"register"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Негативный сценарий",
+							"item": [
+								{
+									"name": "1. Отсутствует поле username",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(403);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "status",
+												"value": "available",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\": \"\",\r\n    \"email\": \"email@com.com\",\r\n    \"password\": \"password\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://api.wishlist.otus.kartushin.su/api/auth/register",
+											"protocol": "https",
+											"host": [
+												"api",
+												"wishlist",
+												"otus",
+												"kartushin",
+												"su"
+											],
+											"path": [
+												"api",
+												"auth",
+												"register"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "2. Отсутствует поле email",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(403);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "status",
+												"value": "available",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\": \"username\",\r\n    \"email\": \"\",\r\n    \"password\": \"password\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://api.wishlist.otus.kartushin.su/api/auth/register",
+											"protocol": "https",
+											"host": [
+												"api",
+												"wishlist",
+												"otus",
+												"kartushin",
+												"su"
+											],
+											"path": [
+												"api",
+												"auth",
+												"register"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "3. Отсутствует поле password",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(403);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "status",
+												"value": "available",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\": \"username\",\r\n    \"email\": \"email@com.com\",\r\n    \"password\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://api.wishlist.otus.kartushin.su/api/auth/register",
+											"protocol": "https",
+											"host": [
+												"api",
+												"wishlist",
+												"otus",
+												"kartushin",
+												"su"
+											],
+											"path": [
+												"api",
+												"auth",
+												"register"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "4. Поле email невалидно",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(403);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "status",
+												"value": "available",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\": \"username\",\r\n    \"email\": \"email\",\r\n    \"password\": \"password\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://api.wishlist.otus.kartushin.su/api/auth/register",
+											"protocol": "https",
+											"host": [
+												"api",
+												"wishlist",
+												"otus",
+												"kartushin",
+												"su"
+											],
+											"path": [
+												"api",
+												"auth",
+												"register"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Регистрация+авторизация",
+					"item": [
+						{
+							"name": "Регистрация",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "status",
+										"value": "available",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"username1\",\r\n    \"email\": \"email1@com.com\",\r\n    \"password\": \"password1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.wishlist.otus.kartushin.su/api/auth/register",
+									"protocol": "https",
+									"host": [
+										"api",
+										"wishlist",
+										"otus",
+										"kartushin",
+										"su"
+									],
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Авторизация",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Тест 1\r",
+											"pm.test(\"Статус код 200\", () => pm.response.to.have.status(200));\r",
+											"\r",
+											"// Тест 2\r",
+											"pm.test(\"Сохранить токен\", () => {\r",
+											"    const token = pm.response.json().token;\r",
+											"    pm.expect(token).to.exist.and.not.be.empty;\r",
+											"    pm.environment.set(\"token\", token);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "status",
+										"value": "available",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"username1\",\r\n    \"password\": \"password1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/auth/login",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Авторизация",
+					"item": [
+						{
+							"name": "Позитивный сценарий",
+							"item": [
+								{
+									"name": "Авторизация",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// Тест 1\r",
+													"pm.test(\"Статус код 200\", () => pm.response.to.have.status(200));\r",
+													"\r",
+													"// Тест 2\r",
+													"pm.test(\"Сохранить токен\", () => {\r",
+													"    const token = pm.response.json().token;\r",
+													"    pm.expect(token).to.exist.and.not.be.empty;\r",
+													"    pm.environment.set(\"token\", token);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "status",
+												"value": "available",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\": \"azamat\",\r\n    \"password\": \"azamat\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/auth/login",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Негативный сценарий",
+							"item": [
+								{
+									"name": "1. Отсутствует username",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// Тест 1\r",
+													"pm.test(\"Статус код 200\", () => pm.response.to.have.status(403));\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "status",
+												"value": "available",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\": \"\",\r\n    \"password\": \"azamat\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/auth/login",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "2. Отсутствует password",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// Тест 1\r",
+													"pm.test(\"Статус код 200\", () => pm.response.to.have.status(403));\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "status",
+												"value": "available",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\": \"azamat\",\r\n    \"password\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/auth/login",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "3. Отсутствуют password+username",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// Тест 1\r",
+													"pm.test(\"Статус код 200\", () => pm.response.to.have.status(403));\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "status",
+												"value": "available",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\": \"\",\r\n    \"password\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/auth/login",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Подарки",
+			"item": [
+				{
+					"name": "Позитивный кейс",
+					"item": [
+						{
+							"name": "Авторизация",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Тест 1\r",
+											"pm.test(\"Статус код 200\", () => pm.response.to.have.status(200));\r",
+											"\r",
+											"// Тест 2\r",
+											"pm.test(\"Сохранить токен\", () => {\r",
+											"    const token = pm.response.json().token;\r",
+											"    pm.expect(token).to.exist.and.not.be.empty;\r",
+											"    pm.globals.set(\"token\", token);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "status",
+										"value": "available",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"azamat\",\r\n    \"password\": \"azamat\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/auth/login",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Создаем желаение и проверяем его поля",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Тест 1\r",
+											"pm.test(\"Статус код 200\", () => pm.response.to.have.status(200));\r",
+											"\r",
+											"// Проверяем поля на соответствие введённым значениям\r",
+											"pm.test(\"Название совпадает\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.title).to.eql(\"Название\");\r",
+											"});\r",
+											"pm.test(\"Описание совпадает\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.description).to.eql(\"Описание\");\r",
+											"});\r",
+											"\r",
+											"// Сохраняем айди созданнного желания\r",
+											"var jsonData = pm.response.json();\r",
+											"pm.globals.set(\"wish_id\", jsonData.id);"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "status",
+										"value": "available",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Название\",\r\n  \"description\": \"Описание\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/wishlists",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"wishlists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Добавляем подарок к желанию",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Тест 1\r",
+											"pm.test(\"Статус код 200\", () => pm.response.to.have.status(200));\r",
+											"\r",
+											"pm.test(\"Проверяем поля на соответствие введённым значениям\", function() {\r",
+											"    const gifts = pm.response.json().wishList.gifts;\r",
+											"    const targetGift = gifts.find(g => g.name === \"name\");\r",
+											"    \r",
+											"    pm.expect(targetGift).to.exist.and.to.include({\r",
+											"        name: \"name\",\r",
+											"        description: \"description\",\r",
+											"        price: 12,\r",
+											"        reserved: false,\r",
+											"        imageUrl:\"https://wishlist.otus.kartushin.su\",\r",
+											"        storeUrl:\"https://wishlist.otus.kartushin.su\"\r",
+											"    });\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Сохранить id из gifts\", function() {\r",
+											"    const responseData = pm.response.json();\r",
+											"    \r",
+											"    // Проверяем структуру\r",
+											"    pm.expect(responseData.wishList).to.exist;\r",
+											"    pm.expect(responseData.wishList.gifts).to.be.an('array').that.is.not.empty;\r",
+											"    \r",
+											"    // Берем первый gift из массива\r",
+											"    const firstGift = responseData.wishList.gifts[0];\r",
+											"    pm.expect(firstGift.id).to.exist.and.to.be.a('string');\r",
+											"    \r",
+											"    // Сохраняем id в переменную\r",
+											"    pm.globals.set(\"gift_id\", firstGift.id);\r",
+											"    \r",
+											"    console.log(\"✅ ID gift сохранен:\", firstGift.id);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "status",
+										"value": "available",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"name\",\r\n    \"description\": \"description\",\r\n    \"storeUrl\": \"https://wishlist.otus.kartushin.su\",\r\n    \"price\": 12,\r\n    \"reserved\": false,\r\n    \"imageUrl\": \"https://wishlist.otus.kartushin.su\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/gifts/wishlist/{{wish_id}}",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"gifts",
+										"wishlist",
+										"{{wish_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Редактируем подарок",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Тест 1",
+											"pm.test(\"Статус код 200\", () => pm.response.to.have.status(200));",
+											"",
+											"// Тест 2",
+											"pm.test(\"Проверяем изменённые поля подарка\", () => {",
+											"    const response = pm.response.json();",
+											"    const gifts = response.wishList.gifts;",
+											"    // Берём первый элемент массива для проверки",
+											"    const firstGift = gifts[0];",
+											"    ",
+											"    // Проверяем конкретные поля",
+											"    pm.expect(firstGift).to.include({",
+											"        name: \"changedName\",",
+											"        description: \"changedDescription\",",
+											"        price: 11111,",
+											"        reserved: false,",
+											"        imageUrl: \"https://wishlist.otus.kartushin.su123123\",",
+											"        storeUrl: \"https://wishlist.otus.kartushin.su\"",
+											"    });",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "status",
+										"value": "available",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"changedName\",\r\n    \"description\": \"changedDescription\",\r\n    \"storeUrl\": \"https://wishlist.otus.kartushin.su\",\r\n    \"price\": 11111,\r\n    \"reserved\": false,\r\n    \"imageUrl\": \"https://wishlist.otus.kartushin.su123123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/gifts/{{gift_id}}",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"gifts",
+										"{{gift_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Удаляем подарок",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Тест 1",
+											"pm.test(\"Статус код 200\", () => pm.response.to.have.status(200));",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "status",
+										"value": "available",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/gifts/{{gift_id}}",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"gifts",
+										"{{gift_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Проверяем что подарков по желанию нет",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Тест 1",
+											"pm.test(\"Статус код 200\", () => pm.response.to.have.status(200));",
+											"",
+											"// Проверяем что запись удалилась и ответ пустой",
+											"pm.test(\"Ответ - пустой массив\", function() {",
+											"    pm.expect(pm.response.json()).to.eql([]);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "status",
+										"value": "available",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/gifts/wishlist/{{wish_id}}",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"gifts",
+										"wishlist",
+										"{{wish_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Удаляем созданное желание",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Тест 1\r",
+											"pm.test(\"Статус код 200\", () => pm.response.to.have.status(200));\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "status",
+										"value": "available",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/wishlists/{{wish_id}}",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"wishlists",
+										"{{wish_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Вишлист",
+			"item": [
+				{
+					"name": "Позитивный кейс",
+					"item": [
+						{
+							"name": "Авторизация",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Тест 1\r",
+											"pm.test(\"Статус код 200\", () => pm.response.to.have.status(200));\r",
+											"\r",
+											"// Тест 2\r",
+											"pm.test(\"Сохранить токен\", () => {\r",
+											"    const token = pm.response.json().token;\r",
+											"    pm.expect(token).to.exist.and.not.be.empty;\r",
+											"    pm.globals.set(\"token\", token);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "status",
+										"value": "available",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"azamat\",\r\n    \"password\": \"azamat\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/auth/login",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Создаем желаение и проверяем его поля",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Тест 1\r",
+											"pm.test(\"Статус код 200\", () => pm.response.to.have.status(200));\r",
+											"\r",
+											"// Проверяем поля на соответствие введённым значениям\r",
+											"pm.test(\"Название совпадает\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.title).to.eql(\"Название\");\r",
+											"});\r",
+											"pm.test(\"Описание совпадает\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.description).to.eql(\"Описание\");\r",
+											"});\r",
+											"\r",
+											"// Сохраняем айди созданнного желания\r",
+											"var jsonData = pm.response.json();\r",
+											"pm.globals.set(\"wish_id\", jsonData.id);"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "status",
+										"value": "available",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Название\",\r\n  \"description\": \"Описание\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/wishlists",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"wishlists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Редактируем название+описание  и проверяем поля",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Тест 1\r",
+											"pm.test(\"Статус код 200\", () => pm.response.to.have.status(200));\r",
+											"\r",
+											"// Проверяем поля на соответствие введённым значениям\r",
+											"pm.test(\"Новое название совпадает\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.title).to.eql(\"Изменённое название\");\r",
+											"});\r",
+											"pm.test(\"Новое описание совпадает\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.description).to.eql(\"Изменённое описание\");\r",
+											"});\r",
+											"\r",
+											"// Сохраняем айди изменённого желания\r",
+											"var jsonData = pm.response.json();\r",
+											"pm.globals.set(\"wish_id\", jsonData.id);"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "status",
+										"value": "available",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Изменённое название\",\r\n  \"description\": \"Изменённое описание\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/wishlists/{{wish_id}}",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"wishlists",
+										"{{wish_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Удаляем созданное желание",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Тест 1\r",
+											"pm.test(\"Статус код 200\", () => pm.response.to.have.status(200));\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "status",
+										"value": "available",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/wishlists/{{wish_id}}",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"wishlists",
+										"{{wish_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Из списка пользователей забираем id текущего пользователя",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Тест 1",
+											"pm.test(\"Статус код 200\", () => pm.response.to.have.status(200));",
+											"",
+											"// Парсим JSON массив пользователей из ответа",
+											"const users = pm.response.json();",
+											"",
+											"// Ищем пользователя с username = \"azamat\"",
+											"const user = users.find(u => u.username === \"azamat\");",
+											"",
+											"if (user) {",
+											"    pm.globals.set(\"user_id\", user.id);",
+											"} else {",
+											"    console.log(\"Пользователь с username 'azamat' не найден\");",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "status",
+										"value": "available",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/users",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Проверяем, что список желаний по пользователю пустой",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Тест 1",
+											"pm.test(\"Статус код 200\", () => pm.response.to.have.status(200));",
+											"",
+											"// Проверяем что запись удалилась и ответ пустой",
+											"pm.test(\"Ответ - пустой массив\", function() {",
+											"    pm.expect(pm.response.json()).to.eql([]);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "status",
+										"value": "available",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/users/{{user_id}}/wishlists",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"users",
+										"{{user_id}}",
+										"wishlists"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
